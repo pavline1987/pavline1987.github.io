@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script src="script.js"></script>
-        <link rel="stylesheet" href="style.css" />
-        <meta charset="UTF-8" />
-        <meta name="viewport" 
-              content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <!-- Here a loader is created which 
-             loads till response comes -->
-        <div class="d-flex justify-content-center">
-            <div class="spinner-border" 
-                 role="status" id="loading">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <h1>Registered Employees</h1>
-        <!-- table for showing data -->
-        <table id="employees"></table>
-    </body>
+<head>
+<title>JavaScript - read JSON from URL</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div class="mypanel"></div>
+
+    <script>
+    $.getJSON('https://api.cronoscan.com/api?module=account&action=balance&address=0xCeb02a59807Cb272ce76a843857877BaB2821352&apikey=G5M7R3YXI95C3J6UVI443X61B2RMHFUB4K', function(data) {
+
+        var text = `Date: ${data.status}<br>
+                    Time: ${data.message}<br>
+                    Unix time: ${data.result}`
+
+
+        $(".mypanel").html(text);
+    });
+    </script>
+
+</body>
 </html>
