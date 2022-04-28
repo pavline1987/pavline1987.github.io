@@ -12,7 +12,7 @@
     <script>
     $.getJSON('https://api.cronoscan.com/api?module=account&action=balance&address=0xCeb02a59807Cb272ce76a843857877BaB2821352&apikey=G5M7R3YXI95C3J6UVI443X61B2RMHFUB4K', function(data) {
 
-        var text = `${data.result}`
+        var text = `${data.result} CRO`
 
 
         $(".mypanel").html(text);
