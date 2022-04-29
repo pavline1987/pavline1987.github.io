@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../js/jquery/jquery3.x/jquery-3.3.1.min.js"></script>
+    <title></title>
+    <script type="text/javascript">
+      $(function () {
+        $('#generate').click(function () {
+          $.get('https://api.cronoscan.com/api?module=account&action=txlist&address=0x9631945CF72b9C7c6B3f0790A4a79e82941beea9&startblock=1&endblock=99999999&sort=asc&apikey=G5M7R3YXI95C3J6UVI443X61B2RMHFUB4K', function (data) {
+            var retStr = '<table>';
+            var par = $.parseJSON(data);
+            $(par).each(function () {
+              retStr += '<tr><td>' + this + '</td></tr>';
+            });
+            retStr += '</table>';
+            $('#res').html(retStr);
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+        <input type="button" value="generate" id="generate" />
+        <div id="res"></div>
+  </body>
+</html>
