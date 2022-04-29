@@ -9,7 +9,7 @@ $(document).ready(() => {
 
     $.getJSON('api.json', (data) => {
       const markup = data.result
-        .map(item => `<li>${blockNumber}</li>`)
+        .map(item => `<li>${result.blockNumber}: ${result.timeStamp}</li>`)
         .join('');
 
       const list = $('<ul />').html(markup);
